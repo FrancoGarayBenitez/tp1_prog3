@@ -14,8 +14,8 @@ public class Sector {
     private int numero;
     private String denominacion;
     private String tipo;
-    private ArrayList<Persona> personas = new ArrayList<>();
-    private ArrayList<Sector> sectors = new ArrayList<>();
+    private ArrayList<Persona> personas;
+    private ArrayList<Sector> sectors;
 
     @Override
     public String toString() {
@@ -72,6 +72,8 @@ public class Sector {
         this.numero = numero;
         this.denominacion = denominacion;
         this.tipo = tipo;
+        this.personas = new ArrayList<>();
+        this.sectors = new ArrayList<>();
     }
 
     public Sector() {
@@ -83,10 +85,10 @@ public class Sector {
         return listaRecursiva;
     }
      
-    public void listaSectorsRecursion (Sector ex, ArrayList<Sector> lista){
-        lista.add(ex);
-        if(ex.getSectors() != null){
-            for (Sector sector : ex.getSectors()) {
+    public void listaSectorsRecursion (Sector sec, ArrayList<Sector> lista){
+        lista.add(sec);
+        if(sec.getSectors() != null){
+            for (Sector sector : sec.getSectors()) {
                 listaSectorsRecursion(sector, lista);
             }
         }

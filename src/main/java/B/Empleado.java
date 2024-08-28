@@ -111,7 +111,8 @@ public class Empleado {
     public ArrayList<Tardanza> getDiasConTardanza(int mes, int anio) {
         ArrayList<Tardanza> tardanzasArrayList = new ArrayList<>();
         for (Asistencia asistencia : getAsistenciaXMesXAnio(mes, anio)) {
-            if (regimenHorario.getHoraIngreso() == asistencia.getHora() && regimenHorario.getMinutoIngreso() < asistencia.getMinuto() - 15) {
+            if (regimenHorario.getHoraIngreso() == asistencia.getHora() && asistencia.getTipo().equals("E") &&
+                    regimenHorario.getMinutoIngreso() < asistencia.getMinuto() - 15) {
                 tardanzasArrayList.add(new Tardanza(asistencia.getId(), asistencia.getTipo(), asistencia.getFecha(), asistencia.getHora(), asistencia.getMinuto(), this));
             } else if (regimenHorario.getHoraIngreso() < asistencia.getHora()) {
                 tardanzasArrayList.add(new Tardanza(asistencia.getId(), asistencia.getTipo(), asistencia.getFecha(), asistencia.getHora(), asistencia.getMinuto(), this));

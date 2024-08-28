@@ -18,7 +18,7 @@ public class Persona {
     private int telefono;
     private String email;
     private String celular;
-    private ArrayList<Actividad> actividads = new ArrayList<>();
+    private ArrayList<Actividad> actividads;
     private Sector sectores;
 
     @Override
@@ -50,6 +50,7 @@ public class Persona {
         this.email = email;
         this.celular = celular;
         this.sectores = sectores;
+        this.actividads = new ArrayList<>();
     }
 
 
@@ -130,21 +131,23 @@ public class Persona {
     }
     
     public double totalPuntosAsignados (int codigo){
+        double totalPuntosAsignados = 0;
         
         for (Actividad actividad : actividads) {
             if (codigo== actividad.getTipoActividad().getCodigo()) {
-                return actividad.getTipoActividad().getPuntosASignados();
+                totalPuntosAsignados += actividad.getTipoActividad().getPuntosASignados();
             }
         }
-        return 0;
+        return totalPuntosAsignados;
     }
     public double totalPuntosAsignados (int codigo, int anio){
+        double totalPuntosAsignados = 0;
         for (Actividad actividad : actividads) {
             if (codigo== actividad.getTipoActividad().getCodigo()&&anio==actividad.getFechaFin().getYear()) {
-                return actividad.getTipoActividad().getPuntosASignados();
+                totalPuntosAsignados += actividad.getTipoActividad().getPuntosASignados();
             }
         }
-        return 0;
+        return totalPuntosAsignados;
     }
     public boolean verificarCodigo(int codigo){
         for (Actividad actividad : actividads) {

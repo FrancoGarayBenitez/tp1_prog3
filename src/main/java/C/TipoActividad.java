@@ -14,7 +14,7 @@ public class TipoActividad {
     private int codigo;
     private String denominacion;
     private double puntosASignados;
-    private ArrayList<Actividad> actividad = new ArrayList<>();
+    private ArrayList<Actividad> actividad;
 
     @Override
     public String toString() {
@@ -40,6 +40,7 @@ public class TipoActividad {
         this.codigo = codigo;
         this.denominacion = denominacion;
         this.puntosASignados = puntosASignados;
+        this.actividad = new ArrayList<>();
     }
 
     public int getCodigo() {

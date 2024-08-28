@@ -9,22 +9,21 @@ public class Expediente {
     private String letra;
     private int numero;
     private String descripcion, tipo, ambito;
-    private ArrayList<Control> listControles = new ArrayList<>();
+    private ArrayList<Control> listControles;
     
     // Relación así mismo, un expediente puede tener un padre, si no lo tiene
     // es debido a que es el expediente raíz; asi mismo también puede tener hijos.
     private Expediente expedientePadre;
-    private List<Expediente> expedientesHijos = new ArrayList<>();
+    private List<Expediente> expedientesHijos;
+    
+     
 
     public Expediente getExpedientePadre() {
         return expedientePadre;
     }
 
     public Expediente() {
-    }
-    
-    public Expediente(String ambito) {
-        this.ambito = ambito;
+   
     }
         
     public Expediente(int id, String letra, int numero, String descripcion, String tipo, String ambito) {
@@ -34,6 +33,8 @@ public class Expediente {
         this.descripcion = descripcion;
         this.tipo = tipo;
         this.ambito = ambito;
+        this.listControles = new ArrayList<>();
+        this.expedientesHijos = new ArrayList<>();
     }
 
     public void setExpedientePadre(Expediente expedientePadre) {
@@ -114,7 +115,7 @@ public class Expediente {
     
     // A.1
     public String getCaratulaExpediente(){
-        return this.numero + " - " + this.letra + " - " + this.descripcion;
+        return getNumero() + " - " + getLetra() + " - " + getDescripcion();
     }
     
     // A.2
