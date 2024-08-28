@@ -1,7 +1,7 @@
 
 package A;
 
-public class Tp1_prog3_colaboracionObjetos {
+public class A {
 
     public static void main(String[] args) {
         

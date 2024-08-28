@@ -8,7 +8,7 @@ package parteB;
  *
  * @author Tonga
  */
-public class Tp2_Prog3 {
+public class ParteB {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
